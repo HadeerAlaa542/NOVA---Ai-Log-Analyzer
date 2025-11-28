@@ -62,7 +62,7 @@ streamlit run ui/streamlit_app.py
 ```
 *The app will open in your browser at `http://localhost:8503`*
 
-<img width="1919" height="929" alt="Screenshot 2025-11-28 202153" src="https://github.com/user-attachments/assets/f7be6b47-1a19-47d2-b23a-58b29e5f335c" />
+<img width="1919" height="1070" alt="Screenshot 2025-11-28 202417" src="https://github.com/user-attachments/assets/2bb7fd8a-4926-4395-a0c5-324e8f6d387b" />
 
 ## 📂 Project Structure
 
