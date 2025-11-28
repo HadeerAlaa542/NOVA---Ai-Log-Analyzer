@@ -4,3 +4,6 @@ primaryColor="#BF00FF"
 backgroundColor="#0a0a12"
 secondaryBackgroundColor="#1a0b2e"
 textColor="#ffffff"
+
+[server]
+port = 8503

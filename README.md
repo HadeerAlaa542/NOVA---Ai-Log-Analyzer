@@ -61,7 +61,7 @@ This launches the web interface.
 ```bash
 streamlit run ui/streamlit_app.py
 ```
-*The app will open in your browser at `http://localhost:8501`*
+*The app will open in your browser at `http://localhost:8503`*
 
 ## 📂 Project Structure
 
