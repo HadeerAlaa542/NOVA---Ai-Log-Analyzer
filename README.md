@@ -11,7 +11,6 @@ Nova is a powerful, AI-driven log analysis tool designed to help DevOps engineer
 *   **🔍 Deep Log Analysis:** Upload raw log files (text, json, log) and get an instant summary of errors, anomalies, and root causes.
 *   **🤖 Nova Chat Assistant:** A built-in AI chatbot to answer your DevOps questions and help you debug interactively.
 *   **🎨 Cyberpunk UI:** A sleek, dark-themed interface designed for focus and clarity.
-*   **🔒 Local & Secure:** No cloud storage integration required. Files are processed locally and sent directly to the AI engine for analysis.
 *   **💡 Actionable Insights:** Get specific CLI commands and fixes for identified issues.
 
 ## 🛠️ Prerequisites
