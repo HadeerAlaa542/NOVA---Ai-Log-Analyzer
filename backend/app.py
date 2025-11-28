@@ -7,6 +7,17 @@ import os
 
 app = FastAPI(title="AI Log Analyzer")
 
+@app.get("/")
+async def root():
+    return {
+        "status": "running",
+        "message": "NOVA AI Log Analyzer Backend is active",
+        "endpoints": {
+            "POST /analyze": "Upload and analyze log files",
+            "POST /chat": "Chat with Nova AI assistant"
+        }
+    }
+
 @app.post("/analyze")
 async def analyze_file(
     file: UploadFile = File(...), 

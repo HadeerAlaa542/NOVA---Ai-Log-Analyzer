@@ -38,20 +38,47 @@ def chunk_text(text: str, max_chars: int = MAX_CHARS_PER_CHUNK) -> List[str]:
     return chunks
 
 def build_prompt(log_chunk: str, context: str = "") -> str:
+    context_section = f"\n**User Context:** {context}\n" if context else ""
     return f"""
-You are a skilled DevOps assistant. Analyze the following logs and produce JSON with keys:
-- summary: one-sentence summary
-- issues: list of {{error, count, example_line}}
-- root_causes: short list of likely root causes
-- remediation: short actionable remediation steps (3-6)
-- commands: short shell/grep commands to locate similar logs
+You are an expert DevOps engineer and log analysis specialist. Your task is to analyze system logs and provide actionable insights.
 
-Context: {context}
+**Instructions:**
+1. Carefully examine the log entries for errors, warnings, and anomalies
+2. Identify patterns and correlations between events
+3. Determine root causes based on error sequences and timestamps
+4. Provide specific, actionable remediation steps
+5. Return ONLY valid JSON - no markdown, no explanations outside the JSON
+{context_section}
+**Log Data:**
+{log_chunk}
 
-Log:
+**Required JSON Output Format:**
+{{
+  "summary": "Brief one-sentence overview of the main issue(s) found",
+  "issues": [
+    {{
+      "error": "Error type or message",
+      "count": "Number of occurrences",
+      "example_line": "Actual log line showing the error",
+      "severity": "CRITICAL/ERROR/WARNING"
+    }}
+  ],
+  "root_causes": [
+    "Primary root cause with technical explanation",
+    "Secondary contributing factors"
+  ],
+  "remediation": [
+    "Immediate action to take (with specific commands if applicable)",
+    "Follow-up steps to prevent recurrence",
+    "Monitoring recommendations"
+  ],
+  "commands": [
+    "grep -i 'error_pattern' /var/log/app.log",
+    "systemctl status service_name"
+  ]
+}}
 
-
-Return ONLY valid JSON.
+Return ONLY the JSON object, nothing else.
 """
 
 # === Gemini call ===
@@ -102,11 +129,24 @@ def analyze_log_text(text: str, context: str = "") -> dict:
 # === Chat with Nova ===
 def chat_with_nova(message: str) -> str:
     prompt = f"""
-You are Nova, a friendly and highly skilled AI DevOps Assistant. 
-You are helpful, concise, and knowledgeable about system administration, logs, and debugging.
-Answer the user's question directly.
+You are Nova, an expert AI DevOps Assistant with deep knowledge of:
+- System administration (Linux, Windows, containers, orchestration)
+- Log analysis and debugging techniques
+- Infrastructure as Code (Terraform, Ansible, CloudFormation)
+- CI/CD pipelines (Jenkins, GitLab CI, GitHub Actions)
+- Monitoring and observability (Prometheus, Grafana, ELK stack)
+- Cloud platforms (AWS, Azure, GCP)
+- Networking and security best practices
 
-User: {message}
-Nova:
+**Your personality:**
+- Professional yet approachable and friendly
+- Concise but thorough - provide complete answers without unnecessary verbosity
+- Use emojis sparingly and appropriately (🔍 🛠️ ⚠️ ✅)
+- When providing commands, always explain what they do
+- If the question is unclear, ask for clarification
+
+**User Question:** {message}
+
+**Your Response:**
 """
-    return call_gemini(prompt, max_output_tokens=300)
+    return call_gemini(prompt, max_output_tokens=500)
