@@ -1,0 +1,51 @@
+2025-01-14T09:33:11Z [Nginx][error] 4721#4721: *9827 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 10.1.22.14, server: api.company.com, request: "GET /v1/inventory HTTP/1.1", upstream: "http://10.0.3.41:8080/v1/inventory"
+2025-01-14T09:33:11Z [Nginx][warn] upstream server temporarily disabled while reading upstream
+
+2025-01-14T09:33:41Z [Docker][error] container f1a2b3c4d5 started
+2025-01-14T09:33:41Z [Docker][error] time="2025-01-14T09:33:41Z" level=error msg="failed to start container: port already in use 0.0.0.0:5432"
+2025-01-14T09:33:41Z [Docker][error] error="listen tcp4 0.0.0.0:5432: bind: address already in use"
+
+2025-01-14T09:33:44Z [K8s][error] Pod payment-api-5cd4d7c7c8-2jxfp failed livenessProbe
+2025-01-14T09:33:44Z [K8s][warning] Back-off restarting failed container
+2025-01-14T09:33:45Z [K8s][error] Readiness probe failed: Get "http://10.0.6.21:8080/health": dial tcp 10.0.6.21:8080: connect: connection refused
+
+2025-01-14T09:34:01Z [APP][panic] runtime error: index out of range [5] with length 5
+2025-01-14T09:34:01Z goroutine 93 [running]:
+main.processPayment()
+    /app/services/payment.go:112 +0x3fe
+main.handleRequest()
+    /app/api/handler.go:44 +0x19e
+net/http.HandlerFunc.ServeHTTP(...)
+    /usr/local/go/src/net/http/server.go:2084
+
+2025-01-14T09:34:15Z [Jenkins][info] Started by GitHub push from branch main
+2025-01-14T09:34:17Z [Jenkins][error] npm ERR! code ENOENT
+2025-01-14T09:34:17Z [Jenkins][error] npm ERR! syscall open
+2025-01-14T09:34:17Z [Jenkins][error] npm ERR! path /var/jenkins/workspace/webapp/package.json
+2025-01-14T09:34:17Z [Jenkins][error] npm ERR! errno -2
+2025-01-14T09:34:17Z [Jenkins][error] npm ERR! enoent ENOENT: no such file or directory, open 'package.json'
+2025-01-14T09:34:17Z [Jenkins][failure] Build step 'Execute shell' marked build as failure
+2025-01-14T09:34:17Z [Jenkins][finished] FAILURE
+
+2025-01-14T09:34:33Z [Terraform][error] Error: Error acquiring the state lock
+Lock Info:
+  ID:        12acb7f7-a833-c599-83f9-1928c9ad91cd
+  Path:      terraform.tfstate
+  Operation: OperationTypeApply
+  Who:       ubuntu@ip-10-0-1-33
+  Version:   1.6.0
+  Created:   2025-01-14 09:30:12.877546322 +0000 UTC
+  Info:      
+Terraform acquires a lock to protect the state.
+Error: timed out waiting for state lock
+
+2025-01-14T09:35:10Z [Systemd][error] docker.service: Failed with result 'exit-code'.
+2025-01-14T09:35:10Z [Systemd][error] Failed to start Docker Application Container Engine.
+
+2025-01-14T09:35:22Z [K8s][warning] Node worker-03 reports: disk pressure
+2025-01-14T09:35:22Z [K8s][error] Evicting pod analytics-job-7hwsf due to node pressure
+
+2025-01-14T09:35:33Z [APP][error] Database connection lost err="pq: remaining connection slots are reserved for non-replication superuser connections"
+2025-01-14T09:35:34Z [APP][warning] Retrying in 5s...
+
+2025-01-14T09:35:40Z [Nginx][info] signal process started
